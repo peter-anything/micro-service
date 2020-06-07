@@ -19,6 +19,21 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 5000 # 连接超时时间
-        readTimeout: 5000   # 读超时时间
-        loggerLevel: full # 日志级别
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+ribbon:
+  eager-load:
+    clients: nba-service-provider
+  eureka:
+    enabled: true
+
+nba-service-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    MaxAutoRetries: 1
+    MaxAutoRetriesNextServer: 1
+    OkToRetryOnAllOperations: true
+    ServerListRefreshInterval: 2000
+    ConnectTimeout: 3000
+    ReadTimeout: 3000

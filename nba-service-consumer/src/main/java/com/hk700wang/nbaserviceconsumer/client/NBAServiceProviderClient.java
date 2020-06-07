@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @Date: 2020/6/7 19:13
  * @Description:
  */
-@FeignClient(name = "nba-service-provider", url = "")
+@FeignClient(name = "nba-service-provider")
 public interface NBAServiceProviderClient {
 
     @RequestMapping(value = "/nbaplayer/list", method = RequestMethod.GET)
